@@ -20,12 +20,38 @@ const user = {
         email: "johndoe@sample.com",
         phoneNum:"(703) 222-1234"
       }
+const songs = [
+  {
+    title: "Glimpse of Us",
+    artist: "Joji"
+  },
+  {
+    title: "Feeling Like The End",
+    artist: "Joji"
+  },
+  {
+    title: "Die For You",
+    artist: "Joji"
+  },
+  {
+    title: "Before The Day Is Over",
+    artist: "Joji"
+  },
+  {
+    title: "Dissolve",
+    artist: "Joji"
+  },
+  {
+    title: "NIGHT RIDER",
+    artist: "Joji"
+  },
+]
 
 
 
 // main page
 app.get('/', function(req, res) {
-  res.render('pages/listener_main');
+  res.render('pages/listener_main', {music: songs});
 });
 
 app.get('/listener_profile', function(req, res) {
