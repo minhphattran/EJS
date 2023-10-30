@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+const path = require('path');
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -8,13 +9,27 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname+'/public'));
 
+
+
+
+
+const user = {
+        firstName: "John",
+        lastName: "Doe",
+        dob: "01/01/2000",
+        email: "johndoe@sample.com",
+        phoneNum:"(703) 222-1234"
+      }
+
+
+
 // main page
 app.get('/', function(req, res) {
   res.render('pages/listener_main');
 });
 
 app.get('/listener_profile', function(req, res) {
-  res.render('pages/listener_profile');
+  res.render('pages/listener_profile', {user: user});
 });
 
 // about music tab

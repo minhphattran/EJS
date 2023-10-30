@@ -135,13 +135,7 @@
 	
 	<script >
 
-			var user = {
-				firstName: "John",
-				lastName: "Doe",
-				dob: "01/01/2000",
-				email: "johndoe@sample.com",
-				phoneNum:"(703) 222-1234"
-			}
+			const user = <%- JSON.stringify(user)%>
 			const info = document.getElementById("info");
 			const edit = document.getElementById("edit");
 
