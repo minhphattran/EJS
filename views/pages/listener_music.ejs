@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Listener_music</title>
+
+	<link rel="stylesheet" type="text/css" href="listener.css">
+
+
+	<style >
+		
+
+		.main_section{
+			background: rgb(66,69,73);
+			display: flex;
+			flex-direction: row;
+			height: 755px;
+			justify-content: space-around;
+		}
+
+
+		.category-container{
+			text-align: center;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+
+
+		}
+		
+		
+
+		.audio_control{
+			height: 70%;
+			width: 70%;
+			margin-left: auto;
+			margin-top: auto;
+			margin-bottom: auto;
+			margin-right: 10px;
+		}
+
+		
+		
+
+		img{
+			height: 50px;
+			width: 50px;
+			justify-self: start;
+			align-self: center;
+		}
+
+		.category-contents>div:hover{
+			background-color: rgb(125,125,125);
+		}
+		
+		.charts {
+			flex: auto;
+			width: 45%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		.charts div{
+			flex:auto;
+			display: flex;
+			flex-direction: column;
+			
+			font-weight: bold;
+			text-align: center;
+
+		}
+		.charts>div{
+			border-style: solid;
+		}
+		.charts div div{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		.genres{
+			flex: auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+		}
+		.genres div{
+			display: grid;
+			grid-template-columns: auto auto auto;
+			padding: 10px;
+
+		}
+		.genres div div{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			font-weight: bold;
+		}
+
+		.genres>div>div:hover{
+			background-color: rgb(125,125,125);
+		}
+
+		.charts>div>div:hover{
+			background-color: rgb(125,125,125);
+		}
+
+		
+	</style>
+</head>
+<body>
+	<nav class = "nav_bar">	
+
+		<div class="nav_bar_left">
+			<button class="listener" onclick="window.location.href='/'">Listener</button>
+			<button class="dj">DJ</button>
+			<button class="producer">Producer</button>
+		</div>
+
+
+		<div class="nav_bar_middle"> PAGE TITLE
+			
+		</div>
+
+
+		<div class="nav_bar_right"> 
+			<button class="profile" onclick="window.location.href='listener_profile.html'">Profile</button>
+
+			<select class="language" name="language" id="language">
+    			<option value="english">English</option>
+  				<option value="spanish">Espanol</option>
+  				<option value="french">French</option>
+			</select> 
+
+			<form name = myForm action="" onsubmit="return validateForm()" method="post" required>
+				<input class="search" type="text" id="search" name="search">
+				<input class="sub" type="submit" value="Submit">
+			</form>
+		</div>
+
+	</nav>
+
+	<div class = "media_bar">
+		<audio controls class="audio_control">
+			<source src="mck.mp3" type="audio/mpeg">
+		</audio>
+	</div>
+
+	<main class = "main_section">
+		<div class="charts">
+			<div>
+				<h2>Pop song chart</h2>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 1</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 2</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 3</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 4</b></p>
+							<p>by Singer</p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 5</b></p>
+							<p>by Singer</p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 6</b></p>
+							<p>by Singer</p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Pop 7</b></p>
+							<p>by Singer</p>
+						</div>
+				</div>
+			</div>
+			<div>
+				<h2>Hiphop song chart</h2>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 1</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 2</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 3</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 4</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 5</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 6</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Hiphop 7</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+			</div>
+			<div> 
+				<h2>Lofi song chart</h2>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 1</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 2</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 3</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 4</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 5</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 6</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+				<div>
+						<img src="/images/joji.jpg">
+						<div class="category-content">
+							<p><b>Lofi 7</b></p>
+							<p>by Singer </p>
+						</div>
+				</div>
+			</div>
+		</div>
+
+		<div class = "genres"> 
+			<div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Pop</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Rock</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>RnB</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Classical</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Hiphop</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Jazz</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Romance</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Lofi</p>
+				</div>
+				<div>
+					<img src="/images/music_icon.jpg">
+					<p>Funk</p>
+				</div>
+						
+			</div>
+			<p><b>GENRES</b></p>
+		</div>
+		
+
+			<script >
+				
+				window.onload = function(){
+					chart();
+					genre();
+				}
+
+				function validateForm() {
+				  var x = document.forms["myForm"]["search"].value;
+				  if (x == "" || x == null) {
+				    alert("Please enter keywords.");
+				    return false;
+				  }
+				}
+
+				function chart(){
+					const chart = document.querySelectorAll(".charts>div>div");
+					for(let i = 0; i < chart.length; i++){
+						chart[i].addEventListener("click", function(){alert("clicked")});
+
+					}
+				}
+				function genre(){
+					const genre = document.querySelectorAll(".genres>div>div");
+					for(let i = 0; i < genre.length; i++){
+						genre[i].addEventListener("click", function(){alert("clicked")});
+
+					}
+				}
+		
+
+			</script>
+	
+	</main>
+
+			<footer class = "foot_note"> Footnote			
+			</footer>
+
+	
+</body>
+</html>
