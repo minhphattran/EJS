@@ -34,7 +34,7 @@
 			width: 100%;
 		}
 		.suggestion{
-			text-align: center;
+			height: 95%;
 			border: solid;
 			border-color: rgb(30,33,36) ;
 			width: 100%;
@@ -90,7 +90,7 @@
 		.suggestion div div{
 			display: flex;
 			flex-direction: row;
-			justify-content: space-around;
+			justify-content: space-between;
 		}
 		.suggestion button{
 			margin-top: auto;
@@ -120,27 +120,23 @@
 	<nav class = "nav_bar">	
 
 		<div class="nav_bar_left">
-			<button class="listener" onclick="window.location.href='/'">Listener</button>
+			<button class="listener" onclick="window.location.href='/listener_main'">Listener</button>
 			<button class="dj">DJ</button>
 			<button class="producer">Producer</button>
 		</div>
 
 
-		<div class="nav_bar_middle"> PAGE TITLE
+		<div class="nav_bar_middle"> RADIO
 			
 		</div>
 
 
 		<div class="nav_bar_right"> 
-			<button onclick="window.location.href='listener_profile'" class="profile" >Profile</button>
+			<button onclick="window.location.href='http://localhost:8080/listener_profile'" class="profile" >Profile</button>
 
-			<select class="language" name="language" id="language">
-    			<option value="english">English</option>
-  				<option value="spanish">Espanol</option>
-  				<option value="french">French</option>
-			</select> 
+			
 
-			<form name = myForm action="" onsubmit="return validateForm()" method="post" required>
+			<form name = myForm action='http://localhost:8080/listener_main' onsubmit="return validateForm()" method='POST' >
 				<input class="search" type="text" id="search" name="search">
 				<input class="sub" type="submit" value="Submit">
 			</form>
@@ -158,8 +154,8 @@
 
 		<div class="content">
 			<div class="category-container">
-				<button onclick="window.location.href='listener_music'" class="category-button">Music</button>
-				<div class="category-contents">
+<!-- 				<button onclick="window.location.href='listener_music'" class="category-button">Music</button>
+ -->				<div class="category-contents">
 					<div class="song">
 						<img src="/images/joji.jpg">
 						<div class="category-content">
@@ -210,49 +206,49 @@
 			</div>
 
 			<div class="category-container">
-				<button onclick="window.location.href='listener_podcast'" class="category-button">Podcast</button>
-				<div class="category-contents">
+<!-- 				<button onclick="window.location.href='listener_podcast'" class="category-button">Podcast</button>
+ -->				<div class="category-contents">
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 1</b></p>
-							<p>by Host 1</p>
+							<p><b><%- music[6].title%></b></p>
+							<p>by <%- music[6].artist%></p>
 						</div>
 					</div>
 
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 2</b></p>
-							<p>by Host 2</p>
+							<p><b><%- music[7].title%></b></p>
+							<p>by <%- music[7].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 3</b></p>
-							<p>by Host 3</p>
+							<p><b><%- music[8].title%></b></p>
+							<p>by <%- music[8].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 4</b></p>
-							<p>by Host 4</p>
+							<p><b><%- music[9].title%></b></p>
+							<p>by <%- music[9].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 5</b></p>
-							<p>by Host 5</p>
+							<p><b><%- music[10].title%></b></p>
+							<p>by <%- music[10].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/podcast_icon.jpg">
+						<img src="/images/Divide_cover.png">
 						<div class="category-content">
-							<p><b>Podcast 6</b></p>
-							<p>by Host 6</p>
+							<p><b><%- music[11].title%></b></p>
+							<p>by <%- music[11].artist%></p>
 						</div>
 					</div>
 
@@ -260,43 +256,49 @@
 			</div>
 
 			<div class="category-container">
-				<button onclick="window.location.href='listener_news'" class="category-button">News</button>
-				<div class="category-contents">
+<!-- 				<button onclick="window.location.href='listener_news'" class="category-button">News</button>
+ -->				<div class="category-contents">
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 1</b></p>
+							<p><b><%- music[12].title%></b></p>
+							<p>by <%- music[12].artist%></p>
 						</div>
 					</div>
 
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 2</b></p>
+							<p><b><%- music[13].title%></b></p>
+							<p>by <%- music[13].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 3</b></p>
+							<p><b><%- music[14].title%></b></p>
+							<p>by <%- music[14].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 4</b></p>
+							<p><b><%- music[15].title%></b></p>
+							<p>by <%- music[15].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 5</b></p>
+							<p><b><%- music[16].title%></b></p>
+							<p>by <%- music[16].artist%></p>
 						</div>
 					</div>
 					<div>
-						<img src="/images/news_icon.jpg">
+						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
-							<p><b>News 6</b></p>
+							<p><b><%- music[17].title%></b></p>
+							<p>by <%- music[17].artist%></p>
 						</div>
 					</div>
 
@@ -304,12 +306,12 @@
 				</div>
 			</div>
 
-			<div class="suggestion"> <b>Suggestion</b>
+			<div class="suggestion"> <b style="text-align: center;">Suggestion</b>
 			<ol>
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[0].title%> - <%- music[0].artist%></p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -326,7 +328,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[1].title%> - <%- music[1].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -342,7 +344,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[2].title%> - <%- music[2].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -358,7 +360,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[3].title%> - <%- music[3].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -374,7 +376,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[4].title%> - <%- music[4].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -390,7 +392,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[5].title%> - <%- music[5].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -406,7 +408,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[6].title%> - <%- music[6].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -422,7 +424,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[7].title%> - <%- music[7].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -438,7 +440,7 @@
 				<li>
 					<div>
 						<div>
-							<p>Sugestion </p>
+							<p><%- music[8].title%> - <%- music[8].artist%> </p>
 							<div>
 								<div class="o">
 									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
@@ -468,21 +470,90 @@
 					const obuttons = document.querySelectorAll(".o");
 					const xbuttons = document.querySelectorAll(".x");
 
-					for (let i = 0; i <obuttons.length; i++){
-						obuttons[i].addEventListener("click", function() {
+					const allsong = <%- JSON.stringify(music)%>
+					for(let i = 0; i <obuttons.length; i++){
+						if(allsong[i].flag == "Liked"){
 							const thumbsup = obuttons[i].querySelector("svg");
 				  			const thumbsdown = obuttons[i].parentElement.querySelector(".x").querySelector("svg");
-				  			thumbsup.style.fill = (thumbsup.style.fill=="blue")?"grey":"blue";	
+				  			thumbsup.style.fill = "blue"
+				  			thumbsdown.style.fill = "grey";
+						}
+						if(allsong[i].flag == "Disliked"){
+							const thumbsup = obuttons[i].querySelector("svg");
+				  			const thumbsdown = obuttons[i].parentElement.querySelector(".x").querySelector("svg");
+				  			thumbsup.style.fill = "grey"
+				  			thumbsdown.style.fill = "red";
+						}
+						if(allsong[i].flag == "null"){
+							const thumbsup = obuttons[i].querySelector("svg");
+				  			const thumbsdown = obuttons[i].parentElement.querySelector(".x").querySelector("svg");
+				  			thumbsup.style.fill = "grey"
+				  			thumbsdown.style.fill = "grey";
+						}
+
+					}
+
+
+					for (let i = 0; i <obuttons.length; i++){
+						obuttons[i].addEventListener("click", async function() {
+							const thumbsup = obuttons[i].querySelector("svg");
+				  			const thumbsdown = obuttons[i].parentElement.querySelector(".x").querySelector("svg");
+				  			thumbsup.style.fill = (thumbsup.style.fill=="blue")?"grey":"blue";
+				  			console.log(i);
+				  			if(thumbsup.style.fill=="blue")
+				  			{
+				  				
+				  				const thisSong = <%- JSON.stringify(music)%>//------------------------------------------------------------------------------------------------------------
+				  				thisSong[i].flag = "Liked";
+				  				const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(thisSong[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+				  			}
+				  			if(thumbsup.style.fill=="grey")
+				  			{
+				  				
+				  				const thisSong = <%- JSON.stringify(music)%>//------------------------------------------------------------------------------------------------------------
+				  				thisSong[i].flag =  "null";
+				  				const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(thisSong[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+				  			}	
 				  			thumbsdown.style.fill = "grey";
 						});
 					}
 
 					for (let i = 0; i <xbuttons.length; i++){
-						xbuttons[i].addEventListener("click", function() {
+						xbuttons[i].addEventListener("click", async function() {
 				  			const thumbsdown = xbuttons[i].querySelector("svg");
 				  			const thumbsup = xbuttons[i].parentElement.querySelector(".o").querySelector("svg");
 				  			thumbsup.style.fill = "grey";			  			
 				  			thumbsdown.style.fill=(thumbsdown.style.fill=="red")?"grey":"red";
+				  			if(thumbsdown.style.fill=="red")
+				  			{
+				  				
+				  				const thisSong = <%- JSON.stringify(music)%>//------------------------------------------------------------------------------------------------------------
+				  				thisSong[i].flag = "Disliked";
+				  				const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(thisSong[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+				  			}
+				  			if(thumbsdown.style.fill=="grey")
+				  			{
+				  				
+				  				const thisSong = <%- JSON.stringify(music)%> //------------------------------------------------------------------------------------------------------------
+				  				thisSong[i].flag = "null";
+				  				const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(thisSong[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+				  			}
 						});
 					}
 

@@ -88,7 +88,7 @@
 	<nav class="nav_bar">	
 
 		<div class="nav_bar_left">
-			<button class="listener" onclick="window.location.href='/'">Listener</button>
+			<button class="listener" onclick="window.location.href='/listener_main'">Listener</button>
 			<button class="dj">DJ</button>
 			<button class="producer">Producer</button>
 		</div>
@@ -102,11 +102,7 @@
 		<div class="nav_bar_right"> 
 			<button class="profile">Profile</button>
 
-			<select class="language" name="language" id="language">
-    			<option value="english">English</option>
-  				<option value="spanish">Espanol</option>
-  				<option value="french">French</option>
-			</select> 
+
 
 			<form name = myForm action="" onsubmit="return validateForm()" method="post" required>
 				<input class="search" type="text" id="search" name="search">
@@ -135,7 +131,9 @@
 	
 	<script >
 
-			const user = <%- JSON.stringify(user)%>
+
+
+			const user = <%- JSON.stringify(user[0])%>;
 			const info = document.getElementById("info");
 			const edit = document.getElementById("edit");
 
@@ -206,14 +204,26 @@
 				`;
 			}
 
-			function showEditPrompt(elem){
+			async function showEditPrompt(elem){
+				
 				const spans = elem.querySelectorAll("span");
 				const result = prompt(spans[0].innerHTML.replace("&nbsp;",""), spans[1].innerHTML);
 				// elem.getAttribute("name") = "phoneNum" => user["phoneNum"] = result;
 				if(result){
 					user[elem.getAttribute("name")] = result;
 					spans[1].innerHTML = result;
+
+
+					const res = await fetch('http://localhost:8080/listener_profile',{
+						method:'POST',
+						headers:{"Content-Type": 'application/json'},
+						body: JSON.stringify(user)						
+					}).then(res => { console.log("Request complete! response:", res)});
+					
+
 				}
+
+
 			}
 
 

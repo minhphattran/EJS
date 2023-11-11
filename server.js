@@ -1,62 +1,99 @@
 var express = require('express');
 var app = express();
 const path = require('path');
+const mongoose = require("mongoose");
+var bodyParser = require('body-parser')
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// use res.render to load up an ejs view file
+
+app.use(bodyParser.urlencoded({ extended: false }))
+
+
+app.use(bodyParser.json())
 
 app.use(express.static(__dirname+'/public'));
 
+mongoose.connect('mongodb+srv://username:PassWord@cluster0.0jxtibh.mongodb.net/');
+
+const aaaSchema = {
+  
+        firstName: String,
+        lastName: String,
+        dob:String,
+        email: String,
+        phoneNum:String
+    
+};
+
+const AAA = mongoose.model('aaas', aaaSchema);
 
 
+const songSchema = {
+  title: String,
+  artist: String,
+  duration: String,
+  genre: String,
+  flag:String
+}
+
+const Songs = mongoose.model('song', songSchema);
 
 
-const user = {
-        firstName: "John",
-        lastName: "Doe",
-        dob: "01/01/2000",
-        email: "johndoe@sample.com",
-        phoneNum:"(703) 222-1234"
-      }
-const songs = [
-  {
-    title: "Glimpse of Us",
-    artist: "Joji"
-  },
-  {
-    title: "Feeling Like The End",
-    artist: "Joji"
-  },
-  {
-    title: "Die For You",
-    artist: "Joji"
-  },
-  {
-    title: "Before The Day Is Over",
-    artist: "Joji"
-  },
-  {
-    title: "Dissolve",
-    artist: "Joji"
-  },
-  {
-    title: "NIGHT RIDER",
-    artist: "Joji"
-  },
-]
 
 
 
 // main page
-app.get('/', function(req, res) {
+app.get('/listener_main', async function(req, res) {
+  const songs = await Songs.find()
   res.render('pages/listener_main', {music: songs});
 });
+app.post('/listener_main', async function(req, res) {
+  
+  if(req.body.search){
 
-app.get('/listener_profile', function(req, res) {
-  res.render('pages/listener_profile', {user: user});
+    const keyword = req.body.search;
+    const filter = {"artist":keyword};
+    const results = await Songs.find(filter);
+    if(results.length == 0){
+      results.push({artist: 'NOT', title: "FOUND"});
+    }
+    
+    res.render('pages/listener_music', {data: results});
+   
+  }
+  else{
+    const updated = req.body;
+  const filter = {"_id":updated._id};
+  let updatedUser = await Songs.findOneAndUpdate(filter, updated);
+  const songs = await Songs.find()
+  res.render('pages/listener_main', {music: songs});
+  }
+ 
+  
+  
 });
+
+
+
+
+
+app.get('/listener_profile', async function(req, res) {
+  const data = await AAA.find();
+
+  res.render('pages/listener_profile', {user: data});
+ 
+});
+app.post('/listener_profile', async function(req, res) {
+  const updated = req.body;
+  const filter = {"_id":updated._id};
+  let updatedUser = await AAA.findOneAndUpdate(filter, updated);
+  res.render('pages/listener_profile', {user: updatedUser});
+});
+
+
+
 
 // about music tab
 app.get('/listener_music', function(req, res) {
