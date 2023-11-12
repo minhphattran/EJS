@@ -71,8 +71,6 @@ app.post('/listener_main', async function(req, res) {
   res.render('pages/listener_main', {music: songs});
   }
  
-  
-  
 });
 
 
@@ -95,18 +93,6 @@ app.post('/listener_profile', async function(req, res) {
 
 
 
-// about music tab
-app.get('/listener_music', function(req, res) {
-  res.render('pages/listener_music');
-});
-
-app.get('/listener_news', function(req, res) {
-  res.render('pages/listener_news');
-});
-
-app.get('/listener_podcast', function(req, res) {
-  res.render('pages/listener_podcast');
-});
 
 app.listen(8080);
 console.log('Server is listening on port 8080');
