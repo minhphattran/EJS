@@ -15,8 +15,10 @@
 			background: rgb(66,69,73);
 			display: flex;
 			flex-direction: row;
+			flex-wrap: wrap;
+			padding: 50px;
 			height: 755px;
-			justify-content: space-around;
+			
 		}
 
 
@@ -105,11 +107,27 @@
 		.charts>div>div:hover{
 			background-color: rgb(125,125,125);
 		}
+		button{
+			color: #6699CC ;
+			background-color: rgb(66, 69, 73);
+			border-color:#6699CC ;
+		}
+		::-webkit-scrollbar {
+   		 -webkit-appearance: none;
+   			 width: 15px;
+}
+		::-webkit-scrollbar-thumb{
+			background-color:#6699CC ;
+		}
+		::-webkit-scrollbar-track{
+			background-color: rgb(66, 69, 73);
+		}
 
 		
 	</style>
 </head>
-<body>
+<body style="color:#6699CC" >
+
 	<nav class = "nav_bar">	
 
 		<div class="nav_bar_left">
@@ -119,7 +137,7 @@
 		</div>
 
 
-		<div class="nav_bar_middle"> PAGE TITLE
+		<div class="nav_bar_middle"> Radio
 			
 		</div>
 
@@ -142,12 +160,26 @@
 		</audio>
 	</div>
 
-	<main class = "main_section">
-		<ul>
-			<% data.forEach ((d) => {%>
-				<li><%= d.title%> - <%= d.artist%></li>
-			<%})%>
-		</ul>
+	<main class = "main_section" style="overflow-x: auto;">
+		
+
+		<% data.forEach ((d) => {%>
+			<div class="song" style="display: flex; width: 300px; height: fit-content;flex:200px">
+				<img src="/images/music_icon.jpg">
+				<div class="category-content">
+					<p><b><%= d.title%></b></p>
+					<p>by <%= d.artist%></p>
+				</div>
+			</div>	
+		<%})%>
+
+		
+
+		
+
+
+
+
 		
 
 			<script >

@@ -36,7 +36,7 @@
 		.suggestion{
 			height: 95%;
 			border: solid;
-			border-color: rgb(30,33,36) ;
+			border-color: #6699CC ;
 			width: 100%;
 		}
 
@@ -109,14 +109,29 @@
 		.category-contents>div:hover{
 			background-color: rgb(125,125,125);
 		}
-		
+
+		button{
+			color: #6699CC ;
+			background-color: rgb(66, 69, 73);
+			border-color:#6699CC ;
+		}
+		::-webkit-scrollbar {
+   		 -webkit-appearance: none;
+   			 width: 15px;
+}
+		::-webkit-scrollbar-thumb{
+			background-color:#6699CC ;
+		}
+		::-webkit-scrollbar-track{
+			background-color: rgb(66, 69, 73);
+		}
 
 		
 	</style>
-	------------------------------------------------------------------
+	
 	
 </head>
-<body>
+<body style="color:#6699CC" >
 	<nav class = "nav_bar">	
 
 		<div class="nav_bar_left">
@@ -154,8 +169,7 @@
 
 		<div class="content">
 			<div class="category-container">
-<!-- 				<button onclick="window.location.href='listener_music'" class="category-button">Music</button>
- -->				<div class="category-contents">
+				<div class="category-contents">
 					<div class="song">
 						<img src="/images/joji.jpg">
 						<div class="category-content">
@@ -206,8 +220,7 @@
 			</div>
 
 			<div class="category-container">
-<!-- 				<button onclick="window.location.href='listener_podcast'" class="category-button">Podcast</button>
- -->				<div class="category-contents">
+				<div class="category-contents">
 					<div>
 						<img src="/images/Divide_cover.png">
 						<div class="category-content">
@@ -256,8 +269,7 @@
 			</div>
 
 			<div class="category-container">
-<!-- 				<button onclick="window.location.href='listener_news'" class="category-button">News</button>
- -->				<div class="category-contents">
+				<div class="category-contents">
 					<div>
 						<img src="/images/Metro-Boomin.png">
 						<div class="category-content">
@@ -307,151 +319,25 @@
 			</div>
 
 			<div class="suggestion"> <b style="text-align: center;">Suggestion</b>
-			<ol>
-				<li>
-					<div>
-						<div>
-							<p><%- music[0].title%> - <%- music[0].artist%></p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				
-				
-				<li>
-					<div>
-						<div>
-							<p><%- music[1].title%> - <%- music[1].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
+			<ol style="overflow-y: scroll;scrollbar-color :black">
 
-				<li>
-					<div>
+				<% music.forEach ((d) => {%>
+					<li>
 						<div>
-							<p><%- music[2].title%> - <%- music[2].artist%> </p>
 							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
+								<p><%- d.title%> - <%- d.artist%></p>
+								<div>
+									<div class="o">
+										<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
+									</div>
+									<div class="x">
+										<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[3].title%> - <%- music[3].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[4].title%> - <%- music[4].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[5].title%> - <%- music[5].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[6].title%> - <%- music[6].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[7].title%> - <%- music[7].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-
-				<li>
-					<div>
-						<div>
-							<p><%- music[8].title%> - <%- music[8].artist%> </p>
-							<div>
-								<div class="o">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M720-120H320v-520l280-280 50 50q7 7 11.5 19t4.5 23v14l-44 174h218q32 0 56 24t24 56v80q0 7-1.5 15t-4.5 15L794-168q-9 20-30 34t-44 14ZM240-640v520H80v-520h160Z"/></svg>
-								</div>
-								<div class="x">
-									<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M240-840h400v520L360-40l-50-50q-7-7-11.5-19t-4.5-23v-14l44-174H120q-32 0-56-24t-24-56v-80q0-7 1.5-15t4.5-15l120-282q9-20 30-34t44-14Zm480 520v-520h160v520H720Z"/></svg>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
+					</li>	
+				<%})%>
 
 
 				
