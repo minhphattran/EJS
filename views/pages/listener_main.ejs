@@ -46,20 +46,13 @@
 		}
 		
 
-		.audio_control{
-			height: 70%;
-			width: 70%;
-			margin-left: auto;
-			margin-top: auto;
-			margin-bottom: auto;
-			margin-right: 10px;
 
-		}
 		.category-contents{
 			height: 100%;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
+			overflow-y: auto;
+			
 			
 		}
 
@@ -85,7 +78,7 @@
 		.suggestion{
 			display: flex;
 			flex-direction: column;
-			justify-content: space-around;
+			
 		}
 		.suggestion div div{
 			display: flex;
@@ -110,21 +103,7 @@
 			background-color: rgb(125,125,125);
 		}
 
-		button{
-			color: #6699CC ;
-			background-color: rgb(66, 69, 73);
-			border-color:#6699CC ;
-		}
-		::-webkit-scrollbar {
-   		 -webkit-appearance: none;
-   			 width: 15px;
-}
-		::-webkit-scrollbar-thumb{
-			background-color:#6699CC ;
-		}
-		::-webkit-scrollbar-track{
-			background-color: rgb(66, 69, 73);
-		}
+
 
 		
 	</style>
@@ -141,20 +120,21 @@
 		</div>
 
 
-		<div class="nav_bar_middle"> RADIO
+		<div class="nav_bar_middle"> LISTENER'S PAGE
 			
 		</div>
 
 
 		<div class="nav_bar_right"> 
-			<button onclick="window.location.href='http://localhost:8080/listener_profile'" class="profile" >Profile</button>
-
-			
+						
 
 			<form name = myForm action='http://localhost:8080/listener_main' onsubmit="return validateForm()" method='POST' >
 				<input class="search" type="text" id="search" name="search">
-				<input class="sub" type="submit" value="Submit">
+				<input class="sub" type="submit" value="Submit" >
 			</form>
+
+
+			<button onclick="window.location.href='http://localhost:8080/listener_profile'" class="profile" >Profile</button>
 		</div>
 
 	</nav>
@@ -169,50 +149,21 @@
 
 		<div class="content">
 			<div class="category-container">
+				<h2 style="text-align:center;">Reference playlists</h2>
 				<div class="category-contents">
-					<div class="song">
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[0].title%></b></p>
-							<p>by <%- music[0].artist%></p>
-						</div>
-					</div>
 
-					<div class="song">
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[1].title%></b></p>
-							<p>by <%- music[1].artist%></p>
+					<% playlist.forEach ((d) => {%>
+						<h2><%- d.playlistName%> - <%- d.Djname%></h2>
+						<% d.Playlists.forEach ((e) => {%>
+						<div class="song" >  
+							<!-- <img src="/images/joji.jpg"> -->
+							<div class="category-content">
+								<p><b><%= e.title%></b></p>
+								<p>by <%= e.artist%></p>
+							</div>
 						</div>
-					</div>
-					<div class="song">
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[2].title%></b></p>
-							<p>by <%- music[2].artist%></p>
-						</div>
-					</div>
-					<div class="song">
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[3].title%></b></p>
-							<p>by <%- music[3].artist%></p>
-						</div>
-					</div>
-					<div class="song">
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[4].title%></b></p>
-							<p>by <%- music[4].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/joji.jpg">
-						<div class="category-content">
-							<p><b><%- music[5].title%></b></p>
-							<p>by <%- music[5].artist%></p>
-						</div>
-					</div>
+						<%})%>	
+					<%})%>
 					
 
 				</div>
@@ -220,103 +171,63 @@
 			</div>
 
 			<div class="category-container">
+				<h2 style="text-align:center;">All songs</h2>
 				<div class="category-contents">
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[6].title%></b></p>
-							<p>by <%- music[6].artist%></p>
-						</div>
-					</div>
-
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[7].title%></b></p>
-							<p>by <%- music[7].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[8].title%></b></p>
-							<p>by <%- music[8].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[9].title%></b></p>
-							<p>by <%- music[9].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[10].title%></b></p>
-							<p>by <%- music[10].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Divide_cover.png">
-						<div class="category-content">
-							<p><b><%- music[11].title%></b></p>
-							<p>by <%- music[11].artist%></p>
-						</div>
-					</div>
+					<% music.forEach ((d) => {%>
+						<div class="song" >
+							<!-- <img src="/images/Divide_cover.png"> -->
+							<div class="category-content">
+								<p><b><%= d.title%></b></p>
+								<p>by <%= d.artist%></p>
+							</div>
+						</div>	
+					<%})%>
+					
 
 				</div>
 			</div>
 
-			<div class="category-container">
+		<!-- 	<div class="category-container">
+				<h2>Playlist 3</h2>
 				<div class="category-contents">
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[12].title%></b></p>
-							<p>by <%- music[12].artist%></p>
-						</div>
-					</div>
+					<% music.forEach ((d) => {%>
+						<div class="song" >
+							<img src="/images/Metro-Boomin.png">
+							<div class="category-content">
+								<p><b><%= d.title%></b></p>
+								<p>by <%= d.artist%></p>
+							</div>
+						</div>	
+					<%})%>	
 
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[13].title%></b></p>
-							<p>by <%- music[13].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[14].title%></b></p>
-							<p>by <%- music[14].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[15].title%></b></p>
-							<p>by <%- music[15].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[16].title%></b></p>
-							<p>by <%- music[16].artist%></p>
-						</div>
-					</div>
-					<div>
-						<img src="/images/Metro-Boomin.png">
-						<div class="category-content">
-							<p><b><%- music[17].title%></b></p>
-							<p>by <%- music[17].artist%></p>
-						</div>
-					</div>
+					
 
 
 				</div>
-			</div>
+			</div> -->
+			<div style="width: 70%; text-align: center;"> REFERENCE
+				<div class= "reference" style="display: flex;justify-content: space-around;" >
+					<p style="margin-top: auto; margin-bottom: auto; border: solid;width: 100px;text-align: center;">Joji</p>
+
+				</div>
+				<div class= "reference" style="display: flex;justify-content: space-around;" >
+					<p style="margin-top: auto; margin-bottom: auto; border: solid;width: 100px;text-align: center;">Ed Sheeran</p>
+
+				</div>
+				<div class= "reference" style="display: flex;justify-content: space-around;" >
+					<p style="margin-top: auto; margin-bottom: auto; border: solid;width: 100px;text-align: center;">Heroes & Villains</p>
+
+				</div>
+				<div class= "reference" style="display: flex;justify-content: space-around;" >
+					<p style="margin-top: auto; margin-bottom: auto; border: solid;width: 100px;text-align: center;">Taylor Swift</p>
+
+
+
+				</div>
+
+
+					
+			</div>		
 
 			<div class="suggestion"> <b style="text-align: center;">Suggestion</b>
 			<ol style="overflow-y: scroll;scrollbar-color :black">
@@ -349,9 +260,55 @@
 				window.onload = function(){
 					setupLikeButtons();
 					song();
+					interestButton();
 
 				}
+				function interestButton(){
+					const artist = [{ref:'Joji', bool: '0'},{ref:'Ed Sheeran', bool: '0'}, {ref:'Heroes & Villains', bool: '0'}, {ref:'Taylor Swift', bool: '0'}]
+					const buttons = document.querySelectorAll(".reference")
+					const artists = <%- JSON.stringify(reference)%>
+					for(let i = 0; i <buttons.length; i++){
+						if(artists[i].bool == "1")
+						{
+							buttons[i].style.color = "green"
+						}
+						if(artists[i].bool == "0")
+						{
+							buttons[i].style.color = "#6699CC"
+						}
+					}
 
+					for(let i = 0; i <buttons.length; i++){
+						buttons[i].addEventListener("click", async function (){
+
+							buttons[i].style.color = (buttons[i].style.color=="green")?"#6699CC":"green";
+							if(buttons[i].style.color == "green"){
+								artists[i].bool = '1';
+								console.log(artists[i])
+
+								const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(artists[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+							}
+							else{
+								artists[i].bool = '0';
+								console.log(artists[i])
+
+								const res = await fetch('http://localhost:8080/listener_main',{
+								method:'POST',
+								headers:{"Content-Type": 'application/json'},
+								body: JSON.stringify(artists[i])						
+								}).then(res => { console.log("Request complete! response:", res)});
+							}
+							location.reload()
+
+						})
+					}
+
+
+				}
 				function setupLikeButtons(){
 					const obuttons = document.querySelectorAll(".o");
 					const xbuttons = document.querySelectorAll(".x");
@@ -468,7 +425,65 @@
 	
 	</main>
 
-			<footer class = "foot_note"> Footnote			
+			<footer class = "foot_note">
+			<footer>
+                <table class="footer-table" style="text-align: inherit; margin: auto;">
+                    <tr>
+                        <td>
+                            <figure class="footer-logo" style="padding-top: 10px;">
+                                <img src="./asset/logo1.png" width="280px">
+                                <figcaption style="margin-left: 60px; text-align: left;">Listen to Sadboi-101 FM!<br>
+                                    Free music, radio podcasts about your favorite artist in RnB and lo-fi. </figcaption>
+                            </figure>
+                        </td>
+                        
+                   
+                        <td>
+                            <table style="margin: auto;">
+                                <tr>
+                                    <td style="font-size: large; text-align: center; margin: auto;">CONNECT</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <table class="footer-connect">
+                                            <tr>
+
+                                                <td><a href="https://www.facebook.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo1.png"></a></td>
+                                                <td><a href="https://www.twitter.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo2.png"></a></td>
+                                                <td><a href="https://www.instagram.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo3.png"></a></td>
+                                                <td><a href="https://www.youtube.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo4.png"></a></td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; margin: auto;">© 2023 sadboi 101-FM</td>
+                        <td>
+                            <table class="footer-support-link">
+                                <tr>
+                                    <td>Help</td>
+                                    <td>|</td>
+                                    <td>Privacy Policy</td>
+                                    <td>|</td>
+                                    <td>Terms of Use</td>
+                                    <td>|</td>
+                                    <td>Mission</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </footer>			
 			</footer>
 
 	

@@ -15,7 +15,9 @@
 		}
 
 		.main_section{
-			background: rgb(66,69,73);
+			border: solid;
+			border-color: black;
+			background: #28282b;
 			display: flex;
 			flex-direction: row;
 			height: 755px;
@@ -31,28 +33,19 @@
 
 
 		}
-		
-		
-
-		.audio_control{
-			height: 70%;
-			width: 70%;
-			margin-left: auto;
-			margin-top: auto;
-			margin-bottom: auto;
-			margin-right: 10px;
-		}
-
-		
-		
-
 		img{
-			border-radius:50%;
-			height: 200px;
-			width: 200px;
+			height: 50px;
+			width: 50px;
 			justify-self: start;
 			align-self: center;
 		}
+		
+
+
+		
+		
+
+
 
 		.main_section div{
 			flex: auto;
@@ -80,11 +73,7 @@
 		.form-popup{
 			display: none;
 		}
-		button{
-			color: #6699CC ;
-			background-color: rgb(66, 69, 73);
-			border-color:#6699CC ;
-		}
+
 		::-webkit-scrollbar {
    		 -webkit-appearance: none;
    			 width: 15px;
@@ -109,13 +98,12 @@
 		</div>
 
 
-		<div class="nav_bar_middle"> PAGE TITLE
+		<div class="nav_bar_middle"> LISTENER'S PAGE
 			
 		</div>
 
 
 		<div class="nav_bar_right"> 
-			<button class="profile">Profile</button>
 
 
 
@@ -135,7 +123,7 @@
 
 	<main class="main_section">
 		<div>
-			<img src="/images/user_icon.jpg">
+			<img style="border-radius:50%;height: 200px;width: 200px;justify-self: start;align-self: center;" src="/images/user_icon.jpg">
 
 		</div>
 
@@ -258,7 +246,65 @@
 	</script>
 	</main>
 
-			<footer class="foot_note"> Footnote			
+			<footer class = "foot_note">
+			<footer>
+                <table class="footer-table" style="text-align: inherit; margin: auto;">
+                    <tr>
+                        <td>
+                            <figure class="footer-logo" style="padding-top: 10px;">
+                                <img src="./asset/logo1.png" width="280px">
+                                <figcaption style="margin-left: 60px; text-align: left;">Listen to Sadboi-101 FM!<br>
+                                    Free music, radio podcasts about your favorite artist in RnB and lo-fi. </figcaption>
+                            </figure>
+                        </td>
+                        
+                   
+                        <td>
+                            <table style="margin: auto;">
+                                <tr>
+                                    <td style="font-size: large; text-align: center; margin: auto;">CONNECT</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <br>
+                                        <table class="footer-connect">
+                                            <tr>
+
+                                                <td><a href="https://www.facebook.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo1.png"></a></td>
+                                                <td><a href="https://www.twitter.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo2.png"></a></td>
+                                                <td><a href="https://www.instagram.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo3.png"></a></td>
+                                                <td><a href="https://www.youtube.com/"><img class="connect-logo"
+                                                            src="./asset/e_small_logo4.png"></a></td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; margin: auto;">© 2023 sadboi 101-FM</td>
+                        <td>
+                            <table class="footer-support-link">
+                                <tr>
+                                    <td>Help</td>
+                                    <td>|</td>
+                                    <td>Privacy Policy</td>
+                                    <td>|</td>
+                                    <td>Terms of Use</td>
+                                    <td>|</td>
+                                    <td>Mission</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </footer>			
 			</footer>
 
 	
